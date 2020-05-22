@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import ColumnItem from "./ColumnItem";
+import AddItem from "./AddItem";
 
 import { ColumnsState } from "../store/ColumnsData/types";
 import { ItemsState } from "../store/ItemsData/types";
@@ -25,6 +26,7 @@ const Column = ({ data }: IProps) => {
       {items.map((item) => {
         return <ColumnItem data={item} key={item.id} />;
       })}
+      <AddItem />
     </div>
   );
 };
