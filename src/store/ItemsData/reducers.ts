@@ -4,6 +4,7 @@ const initialState: ItemsState[] = [
   {
     id: 0,
     order: 0,
+    column: 0,
     text: "Place Holder Text",
   },
 ];
