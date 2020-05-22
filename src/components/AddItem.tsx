@@ -1,10 +1,22 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
-interface Props {}
+import { addItem } from "../store/ItemsData/actions";
 
-const AddItem = (props: Props) => {
+interface IProps {
+  column: number;
+}
+
+const AddItem = ({ column }: IProps) => {
   const [editing, setEditing] = useState(false);
   const [title, setTitle] = useState("");
+  const dispatch = useDispatch();
+
+  const handleAddItem = () => {
+    dispatch(addItem({ text: title, column }));
+    setTitle("");
+    setEditing(false);
+  };
 
   const renderButton = () => {
     return <div onClick={() => setEditing(true)}>Add a Card</div>;
@@ -19,7 +31,7 @@ const AddItem = (props: Props) => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <button>Add card</button>
+        <button onClick={handleAddItem}>Add card</button>
         <button onClick={() => setEditing(false)}>Cancel</button>
       </div>
     );
