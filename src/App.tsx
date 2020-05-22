@@ -1,7 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
+
+import Column from "./components/Column";
+
 import { ColumnsState } from "./store/ColumnsData/types";
 import { ItemsState } from "./store/ItemsData/types";
+
 import "./App.css";
 
 interface RootState {
@@ -18,7 +22,7 @@ function App() {
     <div className="App">
       Trello Clone
       {columns.map((column) => {
-        return <div>{column.title}</div>;
+        return <Column data={column} key={column.id} />;
       })}
       <button>Add New Column</button>
     </div>

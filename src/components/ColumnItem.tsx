@@ -1,9 +1,11 @@
 import React from "react";
+import { ItemsState } from "../store/ItemsData/types";
+interface IProps {
+  data: ItemsState;
+}
 
-interface Props {}
-
-const ColumnItem = (props: Props) => {
-  return <div>Item in a column</div>;
+const ColumnItem = ({ data }: IProps) => {
+  return <div>{data.text}</div>;
 };
 
 export default ColumnItem;

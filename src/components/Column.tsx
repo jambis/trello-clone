@@ -1,9 +1,32 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
-interface Props {}
+import ColumnItem from "./ColumnItem";
 
-const Column = (props: Props) => {
-  return <div>This will be a column container</div>;
+import { ColumnsState } from "../store/ColumnsData/types";
+import { ItemsState } from "../store/ItemsData/types";
+
+interface IProps {
+  data: ColumnsState;
+}
+
+interface RootState {
+  columns: ColumnsState[];
+  items: ItemsState[];
+}
+
+const Column = ({ data }: IProps) => {
+  const selectItems = (state: RootState) => state.items;
+  const items = useSelector(selectItems);
+
+  return (
+    <div>
+      <h2>{data.title}</h2>
+      {items.map((item) => {
+        return <ColumnItem data={item} key={item.id} />;
+      })}
+    </div>
+  );
 };
 
 export default Column;
