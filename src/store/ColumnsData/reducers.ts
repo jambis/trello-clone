@@ -16,14 +16,14 @@ export function columnsReducer(
 ): ColumnsState[] {
   switch (action.type) {
     case ADD_COLUMN:
-      let maxOrder = state.reduce((acc, state) => {
+      const maxOrder = state.reduce((acc, state) => {
         if (state.order > acc) {
           acc = state.order;
           return acc;
         } else {
           return acc;
         }
-      }, 0);
+      }, -1);
 
       return [
         ...state,
