@@ -1,4 +1,4 @@
-import { ColumnsState } from "./types";
+import { ColumnsState, ADD_COLUMN, ColumnActionTypes } from "./types";
 
 const initialState: ColumnsState[] = [
   {
@@ -8,11 +8,27 @@ const initialState: ColumnsState[] = [
   },
 ];
 
+let nextId = 1;
+
 export function columnsReducer(
   state = initialState,
-  action: any
+  action: ColumnActionTypes
 ): ColumnsState[] {
   switch (action.type) {
+    case ADD_COLUMN:
+      let maxOrder = state.reduce((acc, state) => {
+        if (state.order > acc) {
+          acc = state.order;
+          return acc;
+        } else {
+          return acc;
+        }
+      }, 0);
+
+      return [
+        ...state,
+        { id: nextId++, order: maxOrder + 1, title: action.payload },
+      ];
     default:
       return state;
   }
