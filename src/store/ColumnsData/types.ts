@@ -6,3 +6,11 @@ export interface ColumnsState {
 }
 
 // Describing the different ACTION NAMES available
+export const ADD_COLUMN = "ADD_COLUMN";
+
+interface AddColumnAction {
+  type: typeof ADD_COLUMN;
+  payload: string;
+}
+
+export type ColumnActionTypes = AddColumnAction;
