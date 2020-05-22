@@ -2,6 +2,7 @@
 export interface ItemsState {
   id: number;
   order: number;
+  column: number;
   text: string;
 }
 
