@@ -24,9 +24,13 @@ const Column = ({ data }: IProps) => {
     <div>
       <h2>{data.title}</h2>
       {items.map((item) => {
-        return <ColumnItem data={item} key={item.id} />;
+        if (item.column === data.id) {
+          return <ColumnItem data={item} column={data.id} key={item.id} />;
+        } else {
+          return null;
+        }
       })}
-      <AddItem />
+      <AddItem column={data.id} />
     </div>
   );
 };
