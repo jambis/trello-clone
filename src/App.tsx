@@ -18,7 +18,6 @@ function App() {
   const selectColumns = (state: RootState) => state.columns;
   const columns = useSelector(selectColumns);
 
-  console.log(columns);
   return (
     <div className="App">
       <h1>Trello Clone</h1>

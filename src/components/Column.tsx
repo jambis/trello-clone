@@ -36,7 +36,6 @@ const Column = ({ data }: IProps) => {
   const handleOnDragStart = (e: React.DragEvent) => {
     e.dataTransfer.setData("id", `${data.id}`);
     e.dataTransfer.setData("order", `${data.order}`);
-    console.log("Drag start", data);
   };
 
   return (
