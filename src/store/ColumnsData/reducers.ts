@@ -1,4 +1,9 @@
-import { ColumnsState, ADD_COLUMN, ColumnActionTypes } from "./types";
+import {
+  ColumnsState,
+  ColumnActionTypes,
+  ADD_COLUMN,
+  SWITCH_COLUMNS,
+} from "./types";
 
 const initialState: ColumnsState[] = [
   {
@@ -29,6 +34,18 @@ export function columnsReducer(
         ...state,
         { id: nextId++, order: maxOrder + 1, title: action.payload },
       ];
+
+    case SWITCH_COLUMNS:
+      return state.map((column) => {
+        if (column.id === action.payload.dragId) {
+          return { ...column, order: action.payload.dropOrder };
+        } else if (column.id === action.payload.dropId) {
+          return { ...column, order: action.payload.dragOrder };
+        } else {
+          return column;
+        }
+      });
+
     default:
       return state;
   }
