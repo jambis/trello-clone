@@ -23,9 +23,11 @@ function App() {
     <div className="App">
       <h1>Trello Clone</h1>
       <div className="Columns">
-        {columns.map((column) => {
-          return <Column data={column} key={column.id} />;
-        })}
+        {columns
+          .sort((a, b) => a.order - b.order)
+          .map((column) => {
+            return <Column data={column} key={column.id} />;
+          })}
         <AddColumn />
       </div>
     </div>
