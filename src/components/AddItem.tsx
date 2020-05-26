@@ -24,16 +24,18 @@ const AddItem = ({ column }: IProps) => {
 
   const renderInput = () => {
     return (
-      <div>
+      <form onSubmit={handleAddItem}>
         <input
           type="text"
           placeholder="Enter a title for the card"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <button onClick={handleAddItem}>Add card</button>
-        <button onClick={() => setEditing(false)}>Cancel</button>
-      </div>
+        <button type="submit">Add card</button>
+        <button type="button" onClick={() => setEditing(false)}>
+          Cancel
+        </button>
+      </form>
     );
   };
 

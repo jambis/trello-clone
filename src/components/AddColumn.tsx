@@ -22,18 +22,21 @@ const AddColumn = (props: Props) => {
 
   const renderInput = () => {
     return (
-      <div>
+      <form onSubmit={handleAddColumn}>
         <input
           type="text"
           placeholder="Enter a title for the column"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <button onClick={handleAddColumn}>Add Column</button>
-        <button onClick={() => setEditing(false)}>Cancel</button>
-      </div>
+        <button type="submit">Add Column</button>
+        <button type="button" onClick={() => setEditing(false)}>
+          Cancel
+        </button>
+      </form>
     );
   };
+
   return editing ? renderInput() : renderButton();
 };
 
