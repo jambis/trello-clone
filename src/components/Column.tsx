@@ -22,18 +22,18 @@ const Column = ({ data }: IProps) => {
   const selectItems = (state: RootState) => state.items;
   const items = useSelector(selectItems);
 
-  const handleDragOver = (e: React.DragEvent) => {
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
   };
 
-  const handleOnDrop = (e: React.DragEvent) => {
+  const handleOnDrop = (e: React.DragEvent<HTMLDivElement>) => {
     const id = +e.dataTransfer.getData("id");
     const order = +e.dataTransfer.getData("order");
 
     dispatch(switchColumns(id, data.id, order, data.order));
   };
 
-  const handleOnDragStart = (e: React.DragEvent) => {
+  const handleOnDragStart = (e: React.DragEvent<HTMLDivElement>) => {
     e.dataTransfer.setData("id", `${data.id}`);
     e.dataTransfer.setData("order", `${data.order}`);
   };
