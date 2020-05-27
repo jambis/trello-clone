@@ -35,9 +35,7 @@ const TitleInput = styled.input`
   width: 12em;
 `;
 
-interface Props {}
-
-const AddColumn = (props: Props) => {
+const AddColumn = () => {
   const [editing, setEditing] = useState(false);
   const [title, setTitle] = useState("");
   const dispatch = useDispatch();
