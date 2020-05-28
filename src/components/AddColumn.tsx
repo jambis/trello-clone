@@ -14,12 +14,12 @@ const DivButton = styled.div`
   display: flex;
   justify-content: center;
   padding: 0.5em 0;
-  border-radius: 0.2em;
-  background: rgba(150, 150, 150, 0.4);
+  border-radius: 0.25em;
+  background: rgba(230, 230, 230, 0.3);
 
   &:hover {
     cursor: pointer;
-    background: rgba(150, 150, 150, 0.3);
+    background: rgba(230, 230, 230, 0.5);
   }
 `;
 
@@ -27,8 +27,8 @@ const FormDiv = styled.div`
   display: flex;
   justify-content: center;
   padding: 0.5em 0;
-  border-radius: 0.2em;
-  background: rgba(150, 150, 150, 0.5);
+  border-radius: 0.25em;
+  background: rgba(200, 200, 200, 0.5);
 `;
 
 const TitleInput = styled.input`
