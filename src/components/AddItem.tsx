@@ -26,6 +26,8 @@ const AddItem = ({ column }: IProps) => {
     return (
       <form onSubmit={handleAddItem}>
         <input
+          autoFocus
+          required
           type="text"
           placeholder="Enter a title for the card"
           value={title}
